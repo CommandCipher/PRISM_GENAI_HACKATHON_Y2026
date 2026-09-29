@@ -1,0 +1,86 @@
+{
+  "_NOTE": "SYNTHETIC TEST DATA — for local pipeline development only. Replace with real hackathon starter assets (queries.json / scenario catalog) once available. Do not use these scenario_ids or descriptions as final production data.",
+  "scenarios": [
+    {
+      "scenario_id": "BATTERY_FAST_DRAIN",
+      "domain": "battery",
+      "description": "Battery drains unusually quickly during normal usage.",
+      "search_text": [
+        "Battery drains unusually quickly.",
+        "Rapid battery depletion.",
+        "Battery life suddenly reduced.",
+        "Phone loses charge quickly.",
+        "Battery dies way too fast.",
+        "Phone battery is dropping fast."
+      ],
+      "symptoms": ["fast_battery_drain"]
+    },
+    {
+      "scenario_id": "BATTERY_BACKGROUND_USAGE",
+      "domain": "battery",
+      "description": "Background apps consuming excessive battery.",
+      "search_text": [
+        "Apps running in background draining battery.",
+        "Battery used by apps I'm not even using.",
+        "Background app refresh killing battery life."
+      ],
+      "symptoms": ["background_app_drain"]
+    },
+    {
+      "scenario_id": "BATTERY_HEATING",
+      "domain": "battery",
+      "description": "Device overheats while battery drains quickly.",
+      "search_text": [
+        "Phone gets hot and battery drops fast.",
+        "Device overheating during charging.",
+        "Phone too hot while using apps and battery draining."
+      ],
+      "symptoms": ["device_overheating", "fast_battery_drain"]
+    },
+    {
+      "scenario_id": "DISPLAY_NAV_GESTURE_REVERSED",
+      "domain": "display",
+      "description": "Navigation swipe gestures behave in wrong direction after app install.",
+      "search_text": [
+        "Swipe gestures go the wrong way after installing an app.",
+        "Navigation swipes moving up and down instead of left and right.",
+        "Gesture navigation broken after app install.",
+        "Screen navigation gestures misbehaving after app download."
+      ],
+      "symptoms": ["gesture_direction_reversed"]
+    },
+    {
+      "scenario_id": "DISPLAY_FLICKER",
+      "domain": "display",
+      "description": "Screen flickers intermittently.",
+      "search_text": [
+        "Screen flickers on and off.",
+        "Display flashing randomly.",
+        "Screen flickers and battery dies fast."
+      ],
+      "symptoms": ["screen_flicker"]
+    },
+    {
+      "scenario_id": "CAMERA_FOCUS_ISSUE",
+      "domain": "camera",
+      "description": "Camera fails to focus properly.",
+      "search_text": [
+        "Camera won't focus.",
+        "Photos coming out blurry.",
+        "Camera autofocus not working."
+      ],
+      "symptoms": ["camera_focus_failure"]
+    },
+    {
+      "scenario_id": "PERFORMANCE_APP_LAG",
+      "domain": "performance",
+      "description": "Phone slows down after software update.",
+      "search_text": [
+        "Phone got slow after the update.",
+        "Apps lagging since last update.",
+        "Phone performance dropped after update."
+      ],
+      "symptoms": ["post_update_slowdown"]
+    }
+  ]
+}
