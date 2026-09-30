@@ -1,0 +1,1000 @@
+{
+  "_readme": "Catalog of System Settings deeplinks for the hackathon. URIs are MASKED placeholders: match on description, message, qna_description and originalType, then copy the URI verbatim. voiceassist://dummy_positive is the only generic placeholder; see its entry.",
+  "count": 578,
+  "deeplinks": [
+    {
+      "id": "DL-0001",
+      "deeplink": "voiceassist://masked/act/aa73a35e8d",
+      "description": "Opens the 24-hour time format settings page in device Settings on the device.",
+      "message": "Switch Time Format",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Switches between 12-hour and 24-hour time format to display time in your preferred style.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/ef6814259a",
+        "key": "Use 24-hour format"
+      }
+    },
+    {
+      "id": "DL-0002",
+      "deeplink": "voiceassist://masked/act/db88da2f9e",
+      "description": "Opens the cursor area size for auto-click settings page in device Settings on the device.",
+      "message": "View Auto-Click Settings",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Sets the cursor area size for auto-click to control how precise the click target is.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/579790d9fa",
+        "key": "Cursor area size"
+      }
+    },
+    {
+      "id": "DL-0003",
+      "deeplink": "voiceassist://masked/act/d42df4a526",
+      "description": "Opens the ignoring minor cursor movements settings page in device Settings on the device.",
+      "message": "View Auto-Click Settings",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Ignores slight cursor movements so auto-click only triggers when you intentionally stop moving.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/901766d477",
+        "key": "Ignore slight cursor movements"
+      }
+    },
+    {
+      "id": "DL-0004",
+      "deeplink": "voiceassist://masked/act/c546d7a81e",
+      "description": "Opens the left click as default action settings page in device Settings on the device.",
+      "message": "View Click Options",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Sets left click as the default action after auto-click for predictable clicking behavior.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/38af13c311",
+        "key": "Set left click as default action"
+      }
+    },
+    {
+      "id": "DL-0005",
+      "deeplink": "voiceassist://masked/act/d44a9f67de",
+      "description": "Opens the time to take action (timeout) settings page in device Settings on the device.",
+      "message": "View Timeout Settings",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Sets how long to wait before auto-clicking, giving you control over click timing.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/bbb16ddfc4",
+        "key": "Time to take action"
+      }
+    },
+    {
+      "id": "DL-0006",
+      "deeplink": "voiceassist://masked/act/80b8e90475",
+      "description": "Opens the magnifying keyboard while typing settings page in device Settings on the device.",
+      "message": "View Magnification Settings",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Magnifies the keyboard area while typing to help users with low vision see keys clearly.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/c727c286e9",
+        "key": "Magnify keyboard while typing"
+      }
+    },
+    {
+      "id": "DL-0007",
+      "deeplink": "voiceassist://masked/act/917553d309",
+      "description": "Disables mouse keys accessibility via device Settings on the device.",
+      "message": "Disable Mouse Keys",
+      "originalType": "offURL",
+      "control_type": 2,
+      "qna_description": "Lets you use the numeric keypad to move the pointer, helping users who have difficulty using a mouse.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/9df9376b11",
+        "key": "Mouse keys"
+      }
+    },
+    {
+      "id": "DL-0008",
+      "deeplink": "voiceassist://masked/act/49ebf67303",
+      "description": "Enables mouse keys accessibility via device Settings on the device.",
+      "message": "Enable Mouse Keys",
+      "originalType": "onURL",
+      "control_type": 2,
+      "qna_description": "Lets you use the numeric keypad to move the pointer, helping users who have difficulty using a mouse.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/9df9376b11",
+        "key": "Mouse keys",
+        "resultType": "boolean",
+        "condition": "equal",
+        "value": "True"
+      }
+    },
+    {
+      "id": "DL-0009",
+      "deeplink": "voiceassist://masked/act/345d017a3f",
+      "description": "Updates the accessibility volume to a specified value via device Settings on the device.",
+      "message": "Increase Accessibility Volume",
+      "originalType": "updateURL",
+      "control_type": 3,
+      "qna_description": "Adjusts accessibility audio output volume for hearing assistance features to suit your needs.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/cbd34ba0bf",
+        "key": "Accessibility"
+      }
+    },
+    {
+      "id": "DL-0010",
+      "deeplink": "voiceassist://masked/act/bf07178f92",
+      "description": "Opens the Adapt Sound for personalized audio settings page in device Settings on the device.",
+      "message": "View Sound Settings",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Personalizes audio output based on your hearing profile for a clearer and more tailored listening experience.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/21da15cbc2",
+        "key": "Adapt sound"
+      }
+    },
+    {
+      "id": "DL-0011",
+      "deeplink": "voiceassist://masked/act/6992c86a8f",
+      "description": "Updates the alarm volume to a specified value via device Settings on the device.",
+      "message": "Increase Alarm Volume",
+      "originalType": "updateURL",
+      "control_type": 3,
+      "qna_description": "Adjusts the volume for alarm sounds to ensure you wake up at the right level.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/03626c1ad0",
+        "key": "Alarm"
+      }
+    },
+    {
+      "id": "DL-0012",
+      "deeplink": "voiceassist://masked/act/cb1f112bc7",
+      "description": "Disables ambient sound amplification via device Settings on the device.",
+      "message": "Disable Sound Amplification",
+      "originalType": "offURL",
+      "control_type": 2,
+      "qna_description": "Amplifies nearby sounds through your earbuds, helping you hear conversations or surroundings more clearly.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/a96f8bf096",
+        "key": "Amplify ambient sound"
+      }
+    },
+    {
+      "id": "DL-0013",
+      "deeplink": "voiceassist://masked/act/9ac8c32f85",
+      "description": "Enables ambient sound amplification via device Settings on the device.",
+      "message": "Enable Sound Amplification",
+      "originalType": "onURL",
+      "control_type": 2,
+      "qna_description": "Amplifies nearby sounds through your earbuds, helping you hear conversations or surroundings more clearly.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/a96f8bf096",
+        "key": "Amplify ambient sound",
+        "resultType": "boolean",
+        "condition": "equal",
+        "value": "True"
+      }
+    },
+    {
+      "id": "DL-0014",
+      "deeplink": "voiceassist://masked/act/f5297b0fa5",
+      "description": "Disables notification action and reply suggestions via device Settings on the device.",
+      "message": "Disable Suggest actions and replies for notifications",
+      "originalType": "offURL",
+      "control_type": 2,
+      "qna_description": "Suggests quick actions and replies in notifications for faster responses without opening the app.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/5a0f5aac6d",
+        "key": "Suggest actions and replies for notifications"
+      }
+    },
+    {
+      "id": "DL-0015",
+      "deeplink": "voiceassist://masked/act/914c3391f6",
+      "description": "Enables notification action and reply suggestions via device Settings on the device.",
+      "message": "Enable Suggest actions and replies for notifications",
+      "originalType": "onURL",
+      "control_type": 2,
+      "qna_description": "Suggests quick actions and replies in notifications for faster responses without opening the app.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/5a0f5aac6d",
+        "key": "Suggest actions and replies for notifications",
+        "resultType": "boolean",
+        "condition": "equal",
+        "value": "True"
+      }
+    },
+    {
+      "id": "DL-0016",
+      "deeplink": "voiceassist://masked/act/f06c06d2fd",
+      "description": "Opens the notification reminder alerts settings page in device Settings on the device.",
+      "message": "View Notification Settings",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Reminds you of unread notifications at intervals so you don't miss important alerts.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/51eab623c0",
+        "key": "Repeat notification alerts"
+      }
+    },
+    {
+      "id": "DL-0017",
+      "deeplink": "voiceassist://masked/act/5c7980ef55",
+      "description": "Disables corner actions via device Settings on the device.",
+      "message": "Disable Gesture Controls",
+      "originalType": "offURL",
+      "control_type": 2,
+      "qna_description": "Lets you assign actions to screen corners, so tapping a corner triggers a specific function.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/ed7a58551e",
+        "key": "Corner actions"
+      }
+    },
+    {
+      "id": "DL-0018",
+      "deeplink": "voiceassist://masked/act/7af79aeb87",
+      "description": "Enables corner actions via device Settings on the device.",
+      "message": "Enable Gesture Controls",
+      "originalType": "onURL",
+      "control_type": 2,
+      "qna_description": "Lets you assign actions to screen corners, so tapping a corner triggers a specific function.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/ed7a58551e",
+        "key": "Corner actions",
+        "resultType": "boolean",
+        "condition": "equal",
+        "value": "True"
+      }
+    },
+    {
+      "id": "DL-0019",
+      "deeplink": "voiceassist://masked/act/d3d18667d7",
+      "description": "Opens the Auto Blocker security settings page in device Settings on the device.",
+      "message": "View Security Settings",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Automatically blocks suspicious app installations and security threats to protect your device from malware.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/029b0510bf",
+        "key": "Auto Blocker"
+      }
+    },
+    {
+      "id": "DL-0020",
+      "deeplink": "voiceassist://masked/act/a7dee23afb",
+      "description": "Disables adaptive brightness via device Settings on the device.",
+      "message": "Disable Adaptive Display",
+      "originalType": "offURL",
+      "control_type": 2,
+      "qna_description": "Automatically adjusts screen brightness based on ambient light for comfortable viewing and battery savings.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/b2410a1e18",
+        "key": "Adaptive brightness"
+      }
+    },
+    {
+      "id": "DL-0021",
+      "deeplink": "voiceassist://masked/act/376250ee61",
+      "description": "Enables adaptive brightness via device Settings on the device.",
+      "message": "Enable Adaptive Display",
+      "originalType": "onURL",
+      "control_type": 2,
+      "qna_description": "Automatically adjusts screen brightness based on ambient light for comfortable viewing and battery savings.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/b2410a1e18",
+        "key": "Adaptive brightness",
+        "resultType": "boolean",
+        "condition": "equal",
+        "value": "True"
+      }
+    },
+    {
+      "id": "DL-0022",
+      "deeplink": "voiceassist://masked/act/635e6add5d",
+      "description": "Opens the auto factory reset settings page in device Settings on the device.",
+      "message": "View Reset Options",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Automatically resets the device after too many failed unlock attempts to protect your personal data.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/8e8eb09d57",
+        "key": "Auto factory reset"
+      }
+    },
+    {
+      "id": "DL-0023",
+      "deeplink": "voiceassist://masked/act/50d1a8bbbf",
+      "description": "Opens the Auto Hotspot settings page in device Settings on the device.",
+      "message": "View Hotspot Settings",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Automatically shares your mobile data with nearby devices signed in to your account.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/44c1d2b68e",
+        "key": "Auto Hotspot"
+      }
+    },
+    {
+      "id": "DL-0024",
+      "deeplink": "voiceassist://masked/act/6b125e1c6c",
+      "description": "Opens the auto update of system configurations settings page in device Settings on the device.",
+      "message": "View Update Settings",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Automatically updates system configurations and carrier settings to keep your device optimized.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/326c85b0b1",
+        "key": "Auto update system configurations"
+      }
+    },
+    {
+      "id": "DL-0025",
+      "deeplink": "voiceassist://masked/act/0cbfbed761",
+      "description": "Disables auto sync of personal account data via device Settings on the device.",
+      "message": "Disable Auto-Sync",
+      "originalType": "offURL",
+      "control_type": 2,
+      "qna_description": "Automatically syncs personal account data to keep your information up to date across devices.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/dfc8f36ec7",
+        "key": "Auto sync personal data"
+      }
+    },
+    {
+      "id": "DL-0026",
+      "deeplink": "voiceassist://masked/act/60362a7235",
+      "description": "Enables auto sync of personal account data via device Settings on the device.",
+      "message": "Enable Auto-Sync",
+      "originalType": "onURL",
+      "control_type": 2,
+      "qna_description": "Automatically syncs personal account data to keep your information up to date across devices.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/dfc8f36ec7",
+        "key": "Auto sync personal data",
+        "resultType": "boolean",
+        "condition": "equal",
+        "value": "True"
+      }
+    },
+    {
+      "id": "DL-0027",
+      "deeplink": "voiceassist://masked/act/f33c8a327d",
+      "description": "Disables auto sync of Secure Folder data via device Settings on the device.",
+      "message": "Disable Auto-Sync",
+      "originalType": "offURL",
+      "control_type": 2,
+      "qna_description": "Automatically syncs Secure Folder data to keep your private information backed up.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/6f52441807",
+        "key": "Auto sync Secure Folder data"
+      }
+    },
+    {
+      "id": "DL-0028",
+      "deeplink": "voiceassist://masked/act/c7f7b2c2ee",
+      "description": "Enables auto sync of Secure Folder data via device Settings on the device.",
+      "message": "Enable Auto-Sync",
+      "originalType": "onURL",
+      "control_type": 2,
+      "qna_description": "Automatically syncs Secure Folder data to keep your private information backed up.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/6f52441807",
+        "key": "Auto sync Secure Folder data",
+        "resultType": "boolean",
+        "condition": "equal",
+        "value": "True"
+      }
+    },
+    {
+      "id": "DL-0029",
+      "deeplink": "voiceassist://masked/act/35c8535018",
+      "description": "Disables auto sync of business account data via device Settings on the device.",
+      "message": "Disable Auto-Sync",
+      "originalType": "offURL",
+      "control_type": 2,
+      "qna_description": "Automatically syncs business account data to keep work information current across devices.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/ec449ed7d4",
+        "key": "Auto sync business data"
+      }
+    },
+    {
+      "id": "DL-0030",
+      "deeplink": "voiceassist://masked/act/c1ba2ad77e",
+      "description": "Enables auto sync of business account data via device Settings on the device.",
+      "message": "Enable Auto-Sync",
+      "originalType": "onURL",
+      "control_type": 2,
+      "qna_description": "Automatically syncs business account data to keep work information current across devices.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/ec449ed7d4",
+        "key": "Auto sync business data",
+        "resultType": "boolean",
+        "condition": "equal",
+        "value": "True"
+      }
+    },
+    {
+      "id": "DL-0031",
+      "deeplink": "voiceassist://masked/act/29c1d16f6b",
+      "description": "Disables automatic date and time via device Settings on the device.",
+      "message": "Disable Auto Time",
+      "originalType": "offURL",
+      "control_type": 2,
+      "qna_description": "Automatically sets the date and time using network data, ensuring your clock is always accurate.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/ed1fcac8bd",
+        "key": "Automatic date and time"
+      }
+    },
+    {
+      "id": "DL-0032",
+      "deeplink": "voiceassist://masked/act/7cf3b7c530",
+      "description": "Enables automatic date and time via device Settings on the device.",
+      "message": "Enable Auto Time",
+      "originalType": "onURL",
+      "control_type": 2,
+      "qna_description": "Automatically sets the date and time using network data, ensuring your clock is always accurate.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/ed1fcac8bd",
+        "key": "Automatic date and time",
+        "resultType": "boolean",
+        "condition": "equal",
+        "value": "True"
+      }
+    },
+    {
+      "id": "DL-0033",
+      "deeplink": "voiceassist://masked/act/b7be246e45",
+      "description": "Disables automatic time zone via device Settings on the device.",
+      "message": "Disable Auto Time",
+      "originalType": "offURL",
+      "control_type": 2,
+      "qna_description": "Automatically sets the time zone based on your location, so the time stays correct when traveling.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/b9c2422e70",
+        "key": "Automatic time zone"
+      }
+    },
+    {
+      "id": "DL-0034",
+      "deeplink": "voiceassist://masked/act/7441cbd0ba",
+      "description": "Enables automatic time zone via device Settings on the device.",
+      "message": "Enable Auto Time",
+      "originalType": "onURL",
+      "control_type": 2,
+      "qna_description": "Automatically sets the time zone based on your location, so the time stays correct when traveling.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/b9c2422e70",
+        "key": "Automatic time zone",
+        "resultType": "boolean",
+        "condition": "equal",
+        "value": "True"
+      }
+    },
+    {
+      "id": "DL-0035",
+      "deeplink": "voiceassist://masked/act/e4376a5261",
+      "description": "Disables dwell action via device Settings on the device.",
+      "message": "Disable Dwell Action",
+      "originalType": "offURL",
+      "control_type": 2,
+      "qna_description": "Automatically clicks after the pointer stops moving, helping users who can't press a button.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/329613ec6c",
+        "key": "Dwell action"
+      }
+    },
+    {
+      "id": "DL-0036",
+      "deeplink": "voiceassist://masked/act/65824c2421",
+      "description": "Enables dwell action via device Settings on the device.",
+      "message": "Enable Dwell Action",
+      "originalType": "onURL",
+      "control_type": 2,
+      "qna_description": "Automatically clicks after the pointer stops moving, helping users who can't press a button.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/329613ec6c",
+        "key": "Dwell action",
+        "resultType": "boolean",
+        "condition": "equal",
+        "value": "True"
+      }
+    },
+    {
+      "id": "DL-0037",
+      "deeplink": "voiceassist://masked/act/1a0059a935",
+      "description": "Updates the VoiceAssist voice assistant volume to a specified value via device Settings on the device.",
+      "message": "Increase VoiceAssist Volume",
+      "originalType": "updateURL",
+      "control_type": 3,
+      "qna_description": "Adjusts the volume for VoiceAssist voice responses to control the assistant's speaking volume.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/def1153688",
+        "key": "AI assistant"
+      }
+    },
+    {
+      "id": "DL-0038",
+      "deeplink": "voiceassist://masked/act/2cad2e64ca",
+      "description": "Opens the blocking USB connections while locked settings page in device Settings on the device.",
+      "message": "View Security Settings",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Blocks USB connections while the screen is locked to prevent unauthorized data access via USB.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/6890d84c14",
+        "key": "Block USB connections while locked"
+      }
+    },
+    {
+      "id": "DL-0039",
+      "deeplink": "voiceassist://masked/act/01fdaa53e0",
+      "description": "Disables Eye Comfort Shield (blue light filter) via device Settings on the device.",
+      "message": "Disable Eye Comfort Shield",
+      "originalType": "offURL",
+      "control_type": 2,
+      "qna_description": "Reduces blue light emission to reduce eye strain and improve sleep when using the device at night.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/eeb687a2f1",
+        "key": "Eye comfort shield"
+      }
+    },
+    {
+      "id": "DL-0040",
+      "deeplink": "voiceassist://masked/act/027a2c41d0",
+      "description": "Enables Eye Comfort Shield (blue light filter) via device Settings on the device.",
+      "message": "Enable Eye Comfort Shield",
+      "originalType": "onURL",
+      "control_type": 2,
+      "qna_description": "Reduces blue light emission to reduce eye strain and improve sleep when using the device at night.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/eeb687a2f1",
+        "key": "Eye comfort shield",
+        "resultType": "boolean",
+        "condition": "equal",
+        "value": "True"
+      }
+    },
+    {
+      "id": "DL-0041",
+      "deeplink": "voiceassist://masked/act/e6c60353d8",
+      "description": "Opens the Bluetooth scanning settings page in device Settings on the device.",
+      "message": "View Bluetooth scanning",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Scans for Bluetooth devices even when Bluetooth is off, improving location accuracy but using more battery.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/6c79c8628b",
+        "key": "Bluetooth scanning"
+      }
+    },
+    {
+      "id": "DL-0042",
+      "deeplink": "voiceassist://masked/act/9869d41c47",
+      "description": "Disables Bluetooth scanning via device Settings on the device.",
+      "message": "Disable Bluetooth",
+      "originalType": "offURL",
+      "control_type": 2,
+      "qna_description": "Scans for Bluetooth devices even when Bluetooth is off, improving location accuracy but using more battery.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/6c79c8628b",
+        "key": "Bluetooth scanning"
+      }
+    },
+    {
+      "id": "DL-0043",
+      "deeplink": "voiceassist://masked/act/c76675fafa",
+      "description": "Enables Bluetooth scanning via device Settings on the device.",
+      "message": "Enable Bluetooth",
+      "originalType": "onURL",
+      "control_type": 2,
+      "qna_description": "Scans for Bluetooth devices even when Bluetooth is off, improving location accuracy but using more battery.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/6c79c8628b",
+        "key": "Bluetooth scanning",
+        "resultType": "boolean",
+        "condition": "equal",
+        "value": "True"
+      }
+    },
+    {
+      "id": "DL-0044",
+      "deeplink": "voiceassist://masked/act/6da277895b",
+      "description": "Opens the Bluetooth settings page in device Settings on the device.",
+      "message": "View Bluetooth",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Controls Bluetooth to connect wireless devices like earbuds, speakers, and smartwatches to your device.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/4c1028a1c1",
+        "key": "Bluetooth"
+      }
+    },
+    {
+      "id": "DL-0045",
+      "deeplink": "voiceassist://masked/act/4a49fb8f97",
+      "description": "Opens the bold font settings page in device Settings on the device.",
+      "message": "View Bold font",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Makes all system text bold for better readability, helping users who find regular text hard to see.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/7e47d26e02",
+        "key": "Bold font"
+      }
+    },
+    {
+      "id": "DL-0046",
+      "deeplink": "voiceassist://masked/act/107057f488",
+      "description": "Opens the bottom left corner action settings page in device Settings on the device.",
+      "message": "View Bottom left",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Assigns an action to the bottom left screen corner for quick access to a feature.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/4ba91b7255",
+        "key": "Bottom left"
+      }
+    },
+    {
+      "id": "DL-0047",
+      "deeplink": "voiceassist://masked/act/ef234b2f86",
+      "description": "Opens the bottom right corner action settings page in device Settings on the device.",
+      "message": "View Bottom right",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Assigns an action to the bottom right screen corner for quick access to a feature.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/7eaa1f800f",
+        "key": "Bottom right"
+      }
+    },
+    {
+      "id": "DL-0048",
+      "deeplink": "voiceassist://masked/act/1d434f9a40",
+      "description": "Disables bounce keys via device Settings on the device.",
+      "message": "Disable Bounce Keys",
+      "originalType": "offURL",
+      "control_type": 2,
+      "qna_description": "Ignores brief, accidental key presses to help users with hand tremors type more accurately.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/2bf299f3b2",
+        "key": "Bounce keys"
+      }
+    },
+    {
+      "id": "DL-0049",
+      "deeplink": "voiceassist://masked/act/c96d474bee",
+      "description": "Enables bounce keys via device Settings on the device.",
+      "message": "Enable Bounce Keys",
+      "originalType": "onURL",
+      "control_type": 2,
+      "qna_description": "Ignores brief, accidental key presses to help users with hand tremors type more accurately.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/2bf299f3b2",
+        "key": "Bounce keys",
+        "resultType": "boolean",
+        "condition": "equal",
+        "value": "True"
+      }
+    },
+    {
+      "id": "DL-0050",
+      "deeplink": "voiceassist://masked/act/2a41f6c018",
+      "description": "Opens the show brief pop-ups even while screen is off settings in device Settings on the device.",
+      "message": "View Show brief pop-ups even while screen is off",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Shows brief notification pop-ups even when the screen is off for quick alert visibility.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/34261ae7d3",
+        "key": "Show brief pop-ups even while screen is off"
+      }
+    },
+    {
+      "id": "DL-0051",
+      "deeplink": "voiceassist://masked/act/967749e6f3",
+      "description": "Disables hearing aid compatibility via device Settings on the device.",
+      "message": "Disable Hearing Aid",
+      "originalType": "offURL",
+      "control_type": 2,
+      "qna_description": "Improves audio quality during calls for hearing aid users by optimizing sound for compatible devices.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/acfada090d",
+        "key": "Hearing aid compatibility"
+      }
+    },
+    {
+      "id": "DL-0052",
+      "deeplink": "voiceassist://masked/act/72505cf8bb",
+      "description": "Enables hearing aid compatibility via device Settings on the device.",
+      "message": "Enable Hearing Aid",
+      "originalType": "onURL",
+      "control_type": 2,
+      "qna_description": "Improves audio quality during calls for hearing aid users by optimizing sound for compatible devices.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/acfada090d",
+        "key": "Hearing aid compatibility",
+        "resultType": "boolean",
+        "condition": "equal",
+        "value": "True"
+      }
+    },
+    {
+      "id": "DL-0053",
+      "deeplink": "voiceassist://masked/act/32e81769eb",
+      "description": "Disables camera feedback vibration via device Settings on the device.",
+      "message": "Disable Camera Feedback",
+      "originalType": "offURL",
+      "control_type": 2,
+      "qna_description": "Provides vibration feedback when using the camera, confirming actions for users who need tactile response.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/c6079b3b38",
+        "key": "Camera feedback"
+      }
+    },
+    {
+      "id": "DL-0054",
+      "deeplink": "voiceassist://masked/act/c43d0acb62",
+      "description": "Enables camera feedback vibration via device Settings on the device.",
+      "message": "Enable Camera Feedback",
+      "originalType": "onURL",
+      "control_type": 2,
+      "qna_description": "Provides vibration feedback when using the camera, confirming actions for users who need tactile response.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/c6079b3b38",
+        "key": "Camera feedback",
+        "resultType": "boolean",
+        "condition": "equal",
+        "value": "True"
+      }
+    },
+    {
+      "id": "DL-0055",
+      "deeplink": "voiceassist://masked/act/f8dadf70e9",
+      "description": "Disables camera flash notification via device Settings on the device.",
+      "message": "Disable Camera Feedback",
+      "originalType": "offURL",
+      "control_type": 2,
+      "qna_description": "Flashes the camera light for notifications and alarms, alerting users who may not hear sounds.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/db975885ec",
+        "key": "Camera flash notification"
+      }
+    },
+    {
+      "id": "DL-0056",
+      "deeplink": "voiceassist://masked/act/82e0456b02",
+      "description": "Enables camera flash notification via device Settings on the device.",
+      "message": "Enable Camera Feedback",
+      "originalType": "onURL",
+      "control_type": 2,
+      "qna_description": "Flashes the camera light for notifications and alarms, alerting users who may not hear sounds.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/db975885ec",
+        "key": "Camera flash notification",
+        "resultType": "boolean",
+        "condition": "equal",
+        "value": "True"
+      }
+    },
+    {
+      "id": "DL-0057",
+      "deeplink": "voiceassist://masked/act/e76eeb066c",
+      "description": "Opens the captions settings page in device Settings on the device.",
+      "message": "View Show captions",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Displays captions for spoken content in videos and media, helping users with hearing difficulties.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/a6cb5c4b13",
+        "key": "Show captions"
+      }
+    },
+    {
+      "id": "DL-0058",
+      "deeplink": "voiceassist://masked/act/b724fb69ab",
+      "description": "Disables charging feedback vibration via device Settings on the device.",
+      "message": "Disable Charging",
+      "originalType": "offURL",
+      "control_type": 2,
+      "qna_description": "Provides vibration feedback during charging to confirm the device is properly connected to power.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/f34d561a28",
+        "key": "Charging"
+      }
+    },
+    {
+      "id": "DL-0059",
+      "deeplink": "voiceassist://masked/act/4a06b23e5f",
+      "description": "Enables charging feedback vibration via device Settings on the device.",
+      "message": "Enable Charging",
+      "originalType": "onURL",
+      "control_type": 2,
+      "qna_description": "Provides vibration feedback during charging to confirm the device is properly connected to power.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/f34d561a28",
+        "key": "Charging",
+        "resultType": "boolean",
+        "condition": "equal",
+        "value": "True"
+      }
+    },
+    {
+      "id": "DL-0060",
+      "deeplink": "voiceassist://masked/act/f49c582114",
+      "description": "Disables charging sounds via device Settings on the device.",
+      "message": "Disable Charging",
+      "originalType": "offURL",
+      "control_type": 2,
+      "qna_description": "Plays a sound when charging starts or stops, giving an audible confirmation of charging status.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/54e125e7a4",
+        "key": "Charging"
+      }
+    },
+    {
+      "id": "DL-0061",
+      "deeplink": "voiceassist://masked/act/238c026357",
+      "description": "Enables charging sounds via device Settings on the device.",
+      "message": "Enable Charging",
+      "originalType": "onURL",
+      "control_type": 2,
+      "qna_description": "Plays a sound when charging starts or stops, giving an audible confirmation of charging status.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/54e125e7a4",
+        "key": "Charging",
+        "resultType": "boolean",
+        "condition": "equal",
+        "value": "True"
+      }
+    },
+    {
+      "id": "DL-0062",
+      "deeplink": "voiceassist://masked/act/024e527b2d",
+      "description": "Opens the color inversion shortcut settings page in device Settings on the device.",
+      "message": "View Color inversion shortcut",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Provides a shortcut to quickly toggle color inversion for on-demand visual accessibility.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/3a19588fb1",
+        "key": "Color inversion shortcut"
+      }
+    },
+    {
+      "id": "DL-0063",
+      "deeplink": "voiceassist://masked/act/15af0be5c7",
+      "description": "Disables voice access via device Settings on the device.",
+      "message": "Disable Voice Access",
+      "originalType": "offURL",
+      "control_type": 2,
+      "qna_description": "Lets you control your device with voice commands for hands-free navigation and accessibility.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/464b178293",
+        "key": "Voice Access"
+      }
+    },
+    {
+      "id": "DL-0064",
+      "deeplink": "voiceassist://masked/act/3a57b7a964",
+      "description": "Enables voice access via device Settings on the device.",
+      "message": "Enable Voice Access",
+      "originalType": "onURL",
+      "control_type": 2,
+      "qna_description": "Lets you control your device with voice commands for hands-free navigation and accessibility.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/464b178293",
+        "key": "Voice Access",
+        "resultType": "boolean",
+        "condition": "equal",
+        "value": "True"
+      }
+    },
+    {
+      "id": "DL-0065",
+      "deeplink": "voiceassist://masked/act/86e04db3e0",
+      "description": "Opens the amplify ambient sound shortcut settings in device Settings on the device.",
+      "message": "View Sound Settings",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Opens amplify ambient sound shortcut settings to view and configure this option on your device.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/c9d056db2e",
+        "key": "Amplify ambient sound shortcut"
+      }
+    },
+    {
+      "id": "DL-0066",
+      "deeplink": "voiceassist://masked/act/331ef1b1b2",
+      "description": "Opens the color filter shortcut settings in device Settings on the device.",
+      "message": "View Color filter shortcut",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Opens color filter shortcut settings to view and configure this option on your device.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/08a5f0e59b",
+        "key": "Color filter shortcut"
+      }
+    },
+    {
+      "id": "DL-0067",
+      "deeplink": "voiceassist://masked/act/9c89d3513a",
+      "description": "Opens the bluetooth hearing aids shortcut settings in device Settings on the device.",
+      "message": "View Bluetooth hearing aids shortcut",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Opens bluetooth hearing aids shortcut settings to view and configure this option on your device.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/40e6506fe9",
+        "key": "Bluetooth hearing aids shortcut"
+      }
+    },
+    {
+      "id": "DL-0068",
+      "deeplink": "voiceassist://masked/act/5a920692c7",
+      "description": "Opens the high contrast fonts shortcut settings in device Settings on the device.",
+      "message": "View High contrast fonts shortcut",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Opens high contrast fonts shortcut settings to view and configure this option on your device.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/befacf0b6a",
+        "key": "High contrast fonts shortcut"
+      }
+    },
+    {
+      "id": "DL-0069",
+      "deeplink": "voiceassist://masked/act/4dac8327b0",
+      "description": "Opens the magnifier shortcut settings in device Settings on the device.",
+      "message": "View Magnification Settings",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Opens magnifier shortcut settings to view and configure this option on your device.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/6218b3c328",
+        "key": "Magnifier shortcut"
+      }
+    },
+    {
+      "id": "DL-0070",
+      "deeplink": "voiceassist://masked/act/97a9ed9adb",
+      "description": "Opens the mute all sounds shortcut settings in device Settings on the device.",
+      "message": "View Sound Settings",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Opens mute all sounds shortcut settings to view and configure this option on your device.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/07a31370c4",
+        "key": "Mute all sounds shortcut"
+      }
+    },
+    {
+      "id": "DL-0071",
+      "deeplink": "voiceassist://masked/act/7a8cb9c6e2",
+      "description": "Opens the relumino outline shortcut settings in device Settings on the device.",
+      "message": "View Relumino outline shortcut",
+      "originalType": "onClickURL",
+      "control_type": null,
+      "qna_description": "Opens relumino outline shortcut settings to view and configure this option on your device.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/b870c5373a",
+        "key": "Relumino outline shortcut"
+      }
+    },
+    {
+      "id": "DL-0072",
+      "deeplink": "voiceassist://masked/act/e43493db85",
+      "description": "Updates the connected audio balance to a specified value via device Settings on the device.",
+      "message": "Adjust Connected audio",
+      "originalType": "updateURL",
+      "control_type": 3,
+      "qna_description": "Adjusts left-right audio balance for connected headphones or earbuds for balanced sound.",
+      "validation": {
+        "deeplink": "voiceassist://masked/val/1eeb32cf96",
+        "key": "Connected audio"
+      }
+    },
