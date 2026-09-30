@@ -4,8 +4,7 @@ from .catalog import DeviceCatalog
 from .models import Goal
 
 class ValidationGuard:
-    def __init__(self,catalog:DeviceCatalog):
-        self.catalog=catalog
+    def __init__(self,catalog:DeviceCatalog): self.catalog=catalog
 
     def validate(self,goal:Goal)->list[str]:
         errors=[]
@@ -18,10 +17,11 @@ class ValidationGuard:
             elif seen_critical:
                 errors.append("critical action is not last")
             for group in action.stepGroups:
-                if action.category.value=="manual" and group.actionableDeeplink:
+                if action.category.value=="manual" and (group.actionableDeeplink or group.validationDeeplink):
                     errors.append(f"manual deeplink: {action.actionName}")
-                if group.actionableDeeplink and group.actionableDeeplink.deeplink not in allowed:
-                    errors.append(f"deeplink not in catalog: {action.actionName}")
+                if group.actionableDeeplink:
+                    if group.actionableDeeplink.deeplink not in allowed:
+                        errors.append(f"deeplink not in catalog: {action.actionName}")
                 if group.validationDeeplink and group.validationDeeplink.deeplink not in validation_allowed:
                     errors.append(f"validation deeplink not in catalog: {action.actionName}")
                 for step in group.steps:
