@@ -39,15 +39,23 @@ def troubleshoot(query:str)->dict:
     except Exception:
         return {"query":query,"response":{"contexts":[]}}
     for action in goal.actions:
-        if action.category.value=="manual":
-            continue
-        group=action.stepGroups[0]
-        mapped=mapper.map(action.actionName,group.steps)
-        if mapped:
-            group.actionableDeeplink=mapped[0]
-            group.validationDeeplink=mapped[1]
+        for group in action.stepGroups:
+            if action.category.value=="manual":
+                continue
+            mapped=mapper.map(action.actionName,group.steps)
+            if mapped:
+                group.actionableDeeplink=mapped[0]
+                group.validationDeeplink=mapped[1]
     errors=guard.validate(goal)
     if errors:
         return {"query":query,"response":{"contexts":[]}}
     validated=ContextDeeplinkResponse(contexts=[goal])
-    return {"query":query,"response":validated.model_dump(mode="json")}
+    return {
+        "query":query,
+        "response":validated.model_dump(mode="json"),
+        "metadata":{
+            "scenario_id": next((c.get("scenario_id") for c in intelligence.get("candidates",[]) if c.get("scenario_id")),None),
+            "cache_hit": intelligence.get("metadata",{}).get("cache_hit",False),
+            "latency_ms": intelligence.get("metadata",{}).get("total_latency_ms"),
+        }
+    }
