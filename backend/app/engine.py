@@ -1,6 +1,6 @@
 from __future__ import annotations
 import copy
-from app.intelligence.language_brain import analyze
+from app.intelligence.language_brain import analyze, fast_lookup
 from app.device_brain.catalog import DeviceCatalog
 from app.device_brain.extractor import extract
 from app.device_brain.deeplink import DeeplinkMapper
@@ -28,9 +28,14 @@ def _choose(query:str, intelligence:dict):
     return None,0.0
 
 def troubleshoot(query:str)->dict:
+    # Cheap semantic-cache probe first. If the Language Brain has already seen
+    # a confident query, this avoids the LLM entirely and enables the
+    # end-to-end <300 ms cached path.
     intelligence={}
     try:
-        intelligence=analyze(query) or {}
+        intelligence=fast_lookup(query) or {}
+        if not intelligence:
+            intelligence=analyze(query) or {}
     except Exception:
         intelligence={}
 
@@ -51,6 +56,10 @@ def troubleshoot(query:str)->dict:
                 "cache_hit": bool(metadata.get("cache_hit",False)),
                 "device_brain_cache_hit": True,
                 "latency_ms": metadata.get("total_latency_ms"),
+            "fast_path": bool(metadata.get("fast_path", False)),
+            "llm_call_avoided": bool(metadata.get("llm_call_avoided", False)),
+                "fast_path": bool(metadata.get("fast_path", False)),
+                "llm_call_avoided": bool(metadata.get("llm_call_avoided", False)),
             }
         }
 
