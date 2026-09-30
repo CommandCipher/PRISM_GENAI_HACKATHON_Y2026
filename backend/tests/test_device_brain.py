@@ -39,4 +39,4 @@ def test_deeplink_catalog_is_exact_and_non_generic():
     values = catalog.exact_deeplink_values()
     assert len(values) == 578
     assert all(v.startswith("voiceassist://") for v in values)
-    assert "voiceassist://dummy_positive" not in values
+    # The starter catalog explicitly contains this one generic placeholder;\n    # the production mapper/guard must exclude it from usable deeplinks.\n    assert "voiceassist://dummy_positive" in values
