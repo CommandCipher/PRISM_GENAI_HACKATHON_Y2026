@@ -3,6 +3,8 @@ import re
 from .catalog import DeviceCatalog
 from .models import Goal
 
+DUMMY="voiceassist://dummy_positive"
+
 class ValidationGuard:
     def __init__(self,catalog:DeviceCatalog): self.catalog=catalog
 
@@ -20,7 +22,10 @@ class ValidationGuard:
                 if action.category.value=="manual" and (group.actionableDeeplink or group.validationDeeplink):
                     errors.append(f"manual deeplink: {action.actionName}")
                 if group.actionableDeeplink:
-                    if group.actionableDeeplink.deeplink not in allowed:
+                    uri=group.actionableDeeplink.deeplink
+                    if uri == DUMMY:
+                        errors.append(f"generic placeholder deeplink: {action.actionName}")
+                    elif uri not in allowed:
                         errors.append(f"deeplink not in catalog: {action.actionName}")
                 if group.validationDeeplink and group.validationDeeplink.deeplink not in validation_allowed:
                     errors.append(f"validation deeplink not in catalog: {action.actionName}")
