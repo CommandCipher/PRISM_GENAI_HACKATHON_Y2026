@@ -9,35 +9,44 @@ STOP={"open","tap","select","choose","the","a","an","settings","screen","page","
 def tokens(s:str)->set[str]:
     return {x for x in re.findall(r"[a-z0-9]+",s.lower()) if len(x)>2 and x not in STOP}
 
+def _field_score(query:str, record:dict)->float:
+    qt=tokens(query)
+    if not qt: return 0.0
+    best=0.0
+    for field,weight in (("message",0.55),("description",0.30),("qna_description",0.15)):
+        text=str(record.get(field) or "")
+        rt=tokens(text)
+        overlap=len(qt & rt)/len(qt)
+        fuzzy=SequenceMatcher(None,query.lower(),text.lower()).ratio()
+        best=max(best,weight*(0.70*overlap+0.30*fuzzy))
+    return best
+
 class DeeplinkMapper:
     def __init__(self,catalog:DeviceCatalog):
         self.catalog=catalog
-        self.index=[]
-        for r in catalog.deeplink_records():
-            uri=r.get("deeplink")
-            if not isinstance(uri,str) or not uri.strip() or re.match(r"^https?://",uri,re.I): continue
-            text=" ".join(str(r.get(k) or "") for k in ("description","message","qna_description","originalType"))
-            self.index.append((tokens(text),text,r))
+        self.index=[
+            r for r in catalog.deeplink_records()
+            if isinstance(r.get("deeplink"),str)
+            and r["deeplink"].startswith("voiceassist://")
+            and r["deeplink"] != "voiceassist://dummy_positive"
+        ]
 
     def map(self, action_name:str, steps:list[str]):
-        queries=[action_name]+steps
-        candidates=[]
-        for rt,text,r in self.index:
-            best=0.0
-            for q in queries:
-                qt=tokens(q)
-                if not qt: continue
-                overlap=len(qt & rt)/len(qt)
-                if overlap:
-                    fuzzy=SequenceMatcher(None,q.lower(),text.lower()).ratio()
-                    best=max(best,0.80*overlap+0.20*fuzzy)
-            if best>=0.50: candidates.append((best,r))
-        candidates.sort(key=lambda x:x[0],reverse=True)
-        if not candidates: return None
-        # Require a meaningful margin to avoid choosing between near-duplicates.
-        if candidates[0][0] < 0.58: return None
-        if len(candidates)>1 and candidates[0][0]-candidates[1][0] < 0.02: return None
-        r=candidates[0][1]
+        # Action name is the strongest signal; steps only break ties or rescue
+        # actions whose heading is generic.
+        ranked=[]
+        for r in self.index:
+            action_score=_field_score(action_name,r)
+            step_score=max((_field_score(s,r) for s in steps), default=0.0)
+            score=0.80*action_score+0.20*step_score
+            if score>=0.30:
+                ranked.append((score,r))
+        ranked.sort(key=lambda x:x[0],reverse=True)
+        if not ranked or ranked[0][0] < 0.34:
+            return None
+        if len(ranked)>1 and ranked[0][0]-ranked[1][0] < 0.015:
+            return None
+        r=ranked[0][1]
         action=Deeplink(
             deeplink=r["deeplink"],
             description=r["description"],
