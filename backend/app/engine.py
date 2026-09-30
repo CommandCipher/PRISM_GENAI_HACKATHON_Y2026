@@ -4,29 +4,50 @@ from app.device_brain.catalog import DeviceCatalog
 from app.device_brain.extractor import extract
 from app.device_brain.deeplink import DeeplinkMapper
 from app.device_brain.guard import ValidationGuard
+from app.device_brain.models import ContextDeeplinkResponse
 
 catalog=DeviceCatalog()
 mapper=DeeplinkMapper(catalog)
 guard=ValidationGuard(catalog)
 
+def _choose(query:str, intelligence:dict):
+    candidates=intelligence.get("candidates",[]) if isinstance(intelligence,dict) else []
+    for c in candidates:
+        sid=c.get("scenario_id")
+        if sid and catalog.scenario(sid):
+            return catalog.scenario(sid),float(c.get("confidence",0.0))
+    hit=catalog.match_query(query)
+    if hit and hit[0]>=0.45:
+        return hit[1],hit[0]
+    return None,0.0
+
 def troubleshoot(query:str)->dict:
-    intelligence=analyze(query)
-    candidates=intelligence.get("candidates",[])
-    if not candidates:
-        return {"status":"error","code":"NO_MATCH","message":"No validated troubleshooting scenario matched.","intelligence":intelligence}
-    chosen=candidates[0]
-    scenario=catalog.scenario(chosen["scenario_id"])
-    if not scenario:
-        return {"status":"error","code":"SCENARIO_NOT_FOUND","message":"Candidate scenario has no reference record.","scenario_id":chosen["scenario_id"]}
-    reference=next((scenario.get(k) for k in ("siis_response","reference","reference_text","response","text","content","instructions") if isinstance(scenario.get(k),str) and scenario.get(k).strip()),None)
-    if not reference:
-        return {"status":"error","code":"NO_REFERENCE_TEXT","message":"Scenario has no reference troubleshooting text.","scenario_id":chosen["scenario_id"]}
-    goal=extract(reference,intelligence.get("complaint_dna",{}).get("canonical_query",query),chosen.get("confidence",0))
+    intelligence={}
+    try:
+        intelligence=analyze(query) or {}
+    except Exception:
+        intelligence={}
+    catalog.reload()
+    global mapper,guard
+    mapper=DeeplinkMapper(catalog)
+    guard=ValidationGuard(catalog)
+    record,score=_choose(query,intelligence)
+    if not record:
+        return {"query":query,"response":{"contexts":[]}}
+    try:
+        goal=extract(record,score)
+    except Exception:
+        return {"query":query,"response":{"contexts":[]}}
     for action in goal.actions:
-        if action.category!="manual":
-            steps=[s for g in action.stepGroups for s in g.steps]
-            action.actionableDeeplink=mapper.map(action.actionName,steps)
+        if action.category.value=="manual":
+            continue
+        group=action.stepGroups[0]
+        mapped=mapper.map(action.actionName,group.steps)
+        if mapped:
+            group.actionableDeeplink=mapped[0]
+            group.validationDeeplink=mapped[1]
     errors=guard.validate(goal)
     if errors:
-        return {"status":"error","code":"VALIDATION_FAILED","message":"; ".join(errors),"scenario_id":chosen["scenario_id"]}
-    return {"status":"ok","data":goal.model_dump(),"metadata":{"cache_hit":intelligence.get("metadata",{}).get("cache_hit",False),"scenario_id":chosen["scenario_id"],"confidence":chosen.get("confidence",0),"intelligence":intelligence.get("metadata",{})}}
+        return {"query":query,"response":{"contexts":[]}}
+    validated=ContextDeeplinkResponse(contexts=[goal])
+    return {"query":query,"response":validated.model_dump(mode="json")}
