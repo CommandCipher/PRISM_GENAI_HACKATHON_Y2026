@@ -101,11 +101,24 @@ def troubleshoot(query: str) -> dict:
 
     cached_goal = _VALIDATED_GOAL_CACHE.get(scenario_id)
     if cached_goal is not None:
+        _VALIDATED_QUERY_CACHE[normalized_query] = (
+            scenario_id,
+            copy.deepcopy(cached_goal),
+        )
         validated = ContextDeeplinkResponse(**copy.deepcopy(cached_goal))
+        started = time.perf_counter()
+        latency_ms = int((time.perf_counter() - started) * 1000)
         return {
             "query": query,
             "response": validated.model_dump(mode="json"),
-            "metadata": _response_metadata(intelligence, scenario_id, True),
+            "metadata": _response_metadata(
+                {},
+                scenario_id,
+                True,
+                fast_path=True,
+                llm_call_avoided=True,
+                latency_ms=latency_ms,
+            ),
         }
 
     try:
