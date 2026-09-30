@@ -21,6 +21,17 @@ def _field_score(query:str, record:dict)->float:
         best=max(best,weight*(0.70*overlap+0.30*fuzzy))
     return best
 
+def _direction_bonus(query:str, record:dict)->float:
+    q=query.lower()
+    typ=str(record.get("originalType") or "").lower()
+    positive=any(x in q for x in ("enable","turn on","switch on","allow","activate","select","use"))
+    negative=any(x in q for x in ("disable","turn off","switch off","block","deactivate","remove"))
+    if positive and "onurl" in typ: return 0.08
+    if negative and "offurl" in typ: return 0.08
+    if positive and "offurl" in typ: return -0.08
+    if negative and "onurl" in typ: return -0.08
+    return 0.0
+
 class DeeplinkMapper:
     def __init__(self,catalog:DeviceCatalog):
         self.catalog=catalog
@@ -32,13 +43,12 @@ class DeeplinkMapper:
         ]
 
     def map(self, action_name:str, steps:list[str]):
-        # Action name is the strongest signal; steps only break ties or rescue
-        # actions whose heading is generic.
+        queries=[action_name]+steps
         ranked=[]
         for r in self.index:
             action_score=_field_score(action_name,r)
             step_score=max((_field_score(s,r) for s in steps), default=0.0)
-            score=0.80*action_score+0.20*step_score
+            score=0.80*action_score+0.20*step_score+_direction_bonus(" ".join(queries),r)
             if score>=0.30:
                 ranked.append((score,r))
         ranked.sort(key=lambda x:x[0],reverse=True)
