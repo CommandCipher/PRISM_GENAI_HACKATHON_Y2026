@@ -17,6 +17,7 @@ Ends at candidate scenario IDs. Never produces deeplinks/actions/steps.
 import os
 import time
 from typing import Optional
+import copy
 
 from . import normalization, embeddings, ranking, telemetry
 from .retrieval import ScenarioRetriever
@@ -37,6 +38,44 @@ class LanguageBrain:
         self.llm = LLMClient()
         if warmup:
             self.llm.warmup()
+
+    def fast_lookup(self, raw_query: str) -> Optional[dict]:
+        """Run only the cheap embedding/retrieval/cache path.
+
+        This intentionally never calls the LLM. It is used by the Device Brain
+        before the expensive reasoning path so a previously validated semantic
+        query can complete end-to-end without an LLM call.
+        """
+        t_start = time.time()
+        normalized = normalization.normalize_query(raw_query)
+        if not normalized:
+            return None
+
+        t = time.time()
+        query_vec = embeddings.embed_text(normalized)
+        embed_ms = int((time.time() - t) * 1000)
+
+        t = time.time()
+        raw_candidates = self.retriever.search_vec(query_vec, top_k=TOP_K)
+        retrieval_ms = int((time.time() - t) * 1000)
+
+        if not raw_candidates or raw_candidates[0].similarity < MIN_RETRIEVAL_SIMILARITY:
+            return None
+
+        cached = self.cache.lookup(query_vec, raw_candidates[0].scenario_id)
+        if cached is None:
+            return None
+
+        result = copy.deepcopy(cached)
+        result["complaint_dna"]["raw_query"] = raw_query
+        result["metadata"]["retrieval_latency_ms"] = retrieval_ms
+        result["metadata"]["embedding_latency_ms"] = embed_ms
+        result["metadata"]["llm_latency_ms"] = 0
+        result["metadata"]["llm_call_avoided"] = True
+        result["metadata"]["fast_path"] = True
+        result["metadata"]["total_latency_ms"] = int((time.time() - t_start) * 1000)
+        telemetry.record_cache_hit(result["metadata"].get("cache_lookup_ms", 0))
+        return result
 
     def analyze(self, raw_query: str) -> dict:
         t_start = time.time()
@@ -185,11 +224,22 @@ class LanguageBrain:
 _brain: Optional[LanguageBrain] = None
 
 
-def analyze(raw_query: str) -> dict:
+def _get_brain(warmup: bool = True) -> LanguageBrain:
     global _brain
     if _brain is None:
-        _brain = LanguageBrain()
-    return _brain.analyze(raw_query)
+        _brain = LanguageBrain(warmup=warmup)
+    return _brain
+
+
+def fast_lookup(raw_query: str) -> Optional[dict]:
+    """Cheap semantic-cache probe; never invokes the LLM."""
+    if _brain is None:
+        return None
+    return _brain.fast_lookup(raw_query)
+
+
+def analyze(raw_query: str) -> dict:
+    return _get_brain(warmup=True).analyze(raw_query)
 
 
 if __name__ == "__main__":
